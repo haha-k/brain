@@ -51,18 +51,19 @@
                 <UKbd>K</UKbd>
             </template>
         </UInput>
-        <USelectMenu
-            v-slot="{ open }"
-            v-model="selected"
-            :options="options"
-            :popper="{
-                strategy: 'fixed'
-            }"
-        >
+
+        <el-dropdown>
             <UButton color="gray" class="flex-1 justify-between">
                 <UIcon name="i-heroicons-plus-20-solid" />
             </UButton>
-        </USelectMenu>
+            <template #dropdown>
+            <el-dropdown-menu>
+                <el-dropdown-item>文档</el-dropdown-item>
+                <el-dropdown-item divided>知识库</el-dropdown-item>
+                <el-dropdown-item divided>导入</el-dropdown-item>
+            </el-dropdown-menu>
+            </template>
+        </el-dropdown>
     </div>
 </div>
 </template>
@@ -70,16 +71,6 @@
 <script setup lang="ts">
 const { metaSymbol } = useShortcuts()
 
-const options = ref([
-    { id: 1, name: 'Wade Cooper', colors: ['red', 'yellow'] },
-    { id: 2, name: 'Arlene Mccoy', colors: ['blue', 'yellow'] },
-    { id: 3, name: 'Devon Webb', colors: ['green', 'blue'] },
-    { id: 4, name: 'Tom Cook', colors: ['blue', 'red'] },
-    { id: 5, name: 'Tanya Fox', colors: ['green', 'red'] },
-    { id: 5, name: 'Hellen Schmidt', colors: ['green', 'yellow'] }
-])
-
-const selected = ref(options.value[1]);
 </script>
 
 <style>
