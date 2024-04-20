@@ -46,7 +46,6 @@
             <template #trailing>
                 <UKbd
                     class="mr-4px"
-                    background="bg-gray-100 dark:bg-gray-80"
                 >{{ metaSymbol }}</UKbd>
                 <UKbd>K</UKbd>
             </template>
@@ -57,20 +56,64 @@
                 <UIcon name="i-heroicons-plus-20-solid" />
             </UButton>
             <template #dropdown>
-            <el-dropdown-menu>
-                <el-dropdown-item>文档</el-dropdown-item>
-                <el-dropdown-item divided>知识库</el-dropdown-item>
-                <el-dropdown-item divided>导入</el-dropdown-item>
-            </el-dropdown-menu>
+                <el-dropdown-menu>
+                    <el-dropdown-item>文档</el-dropdown-item>
+                    <el-dropdown-item divided>知识库</el-dropdown-item>
+                    <el-dropdown-item divided>导入</el-dropdown-item>
+                </el-dropdown-menu>
             </template>
         </el-dropdown>
     </div>
+    <div class="menu__wrapper">
+        <NuxtLink
+            v-for="(item) in menuList"
+            :key="item.key"
+            :to="item.to"
+        >
+            <div
+                class="
+                    p-8px rd-6px
+                    flex items-center h-32px
+                    hover:bg-gray-200
+                "
+                @click="handleClickMenu(item)"
+            >
+                <UIcon :name="item.icon" />
+                    <span class="ml-8px c-#262626">{{ item.label }}</span>
+            </div>
+        </NuxtLink>
+    </div>
+    <div class=""></div>
 </div>
 </template>
 
 <script setup lang="ts">
 const { metaSymbol } = useShortcuts()
 
+const current = ref<string[]>(['start']);
+
+const menuList = [
+    {
+        label: '开始',
+        key: 'start',
+        icon: 'i-heroicons-clock',
+        to: '/dashboard'
+    },
+    {
+        label: '收藏',
+        key: 'collect',
+        icon: 'i-heroicons-star',
+        to: '/dashboard/collections'
+    }
+]
+
+const handleClickMenu = (item: any) => {
+    if(item.key === 'start') {
+
+    } else if(item.key === 'collect') {
+
+    }
+}
 </script>
 
 <style>

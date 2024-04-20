@@ -1,11 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   devtools: { enabled: true },
   modules: [
     '@unocss/nuxt',
     "@nuxt/ui",
     '@element-plus/nuxt',
+    // '@ant-design-vue/nuxt'
   ],
+  colorMode: {
+    preference: 'light'
+  },
   app: {
     head: {
       charset: 'utf-8',
@@ -17,5 +22,10 @@ export default defineNuxtConfig({
         href: '/logo.png'
       }]
     },
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['dayjs', 'dayjs/plugin/*']
+    }
   }
 })
