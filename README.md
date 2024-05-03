@@ -6,7 +6,7 @@ pnpm install
 Start the development server on `http://localhost:3000`:
 ```bash
 # pnpm
-pnpm run dev
+pnpm dev:client
 ```
 ## Production
 Build the application for production:
