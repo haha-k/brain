@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 用户
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  GithubID String
+  WeChatID String
+  password String
+  createdTime DateTime @default(now()) @map("created_time")
+  updatedTime DateTime @updatedAt @map("updated_time")
+  @@map("user")
+}
+
+// book(知识库表)
+model Book {
+  id Int @id @default(autoincrement())
+  userId Int
+  title String
+  desc String
+  createdTime DateTime @default(now()) @map("created_time")
+  updatedTime DateTime @updatedAt @map("updated_time")
+  @@map("knowledgebase")
+}
+
+// docs(文档表)
+model Docs {
+  id Int @id @default(autoincrement())
+  userId Int
+  bookId Int
+  title String
+  cover String
+  content String
+  createdTime DateTime @default(now()) @map("created_time")
+  updatedTime DateTime @updatedAt @map("updated_time")
+  @@map("document")
+}
+
+// aiRecord(AI记录表)
+model AIRecord {
+  id Int @id @default(autoincrement())
+  userId Int
+  docsId Int
+  questionContent String
+  answerContent String
+  createdTime DateTime @default(now()) @map("created_time")
+  updatedTime DateTime @updatedAt @map("updated_time")
+  @@map("AIRecord")
+}
+
+// 收藏夹表
+model Collection {
+  id Int @id @default(autoincrement())
+  docsId Int
+  userId Int
+  createdTime DateTime @default(now()) @map("created_time")
+  updatedTime DateTime @updatedAt @map("updated_time")
+}

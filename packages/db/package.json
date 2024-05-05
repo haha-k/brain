@@ -1,0 +1,20 @@
+{
+  "name": "@brain/db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.13.0",
+    "mysql2": "^3.9.7"
+  },
+  "devDependencies": {
+    "prisma": "^5.13.0"
+  }
+}
