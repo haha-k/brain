@@ -131,11 +131,14 @@ const handleCreateKnowledge = () => {
 
 interface Tree {
     label: string
+    id: number
     children?: Tree[]
 }
 
 const handleNodeClick = (data: Tree) => {
-  console.log(data)
+    const { id } = data;
+    const router = useRouter()
+    router.push({ path: `/book/${id}`});
 }
 
 const treeData: Tree[] = ref([])

@@ -4,19 +4,24 @@ export default defineEventHandler((event) => {
             label: '知识库',
             children: [
                 {
-                    label: 'Level one 1',
+                    label: '知识库',
+                    id: 1
                 },
                     {
-                    label: 'Level one 1',
+                    label: '未命名知识库',
+                    id: 2
                 },
                     {
-                    label: 'Level one 1',
+                    label: '测试111',
+                    id: 3
                 },
                     {
-                    label: 'Level one 1',
+                    label: '侧视1232',
+                    id: 4
                 },
                     {
-                    label: 'Level one 1',
+                    label: '优秀知识库',
+                    id: 5
                 },
             ]
         }

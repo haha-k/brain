@@ -89,7 +89,7 @@
             style="max-width: 600px"
             :data="treeData"
             :props="defaultProps"
-            @node-click="handleNodeClick('docs')"
+            @node-click="handleNodeClick"
         />
     </div>
 </div>
@@ -118,7 +118,7 @@ const handleClickMenu = (item: any) => {
 }
 
 
-const emit = defineEmits(['createKnowledge']);
+const emit = defineEmits(['createKnowledge', 'change-tree']);
 const handleCreateKnowledge = () => {
     emit('createKnowledge')
 }
@@ -130,7 +130,10 @@ interface Tree {
 }
 
 const handleNodeClick = (data: Tree) => {
-  console.log(data)
+    const { id } = data;
+    if(id) {
+        emit('change-tree');
+    }
 }
 
 const treeData: Tree[] = ref([])
@@ -142,7 +145,7 @@ const defaultProps = {
 
 onMounted(async () => {
     const { data: docsTreeList } = await useFetch('/api/docsTreeList')
-    treeData.value = props.isBookList ? bookTreeList.value : docsTreeList.value;
+    treeData.value = docsTreeList.value;
     console.log('%c HAHA-[ treeData.value ]-168', 'font-size:13px; background:pink; color:#bf2c9f;', treeData.value);
 })
 
