@@ -5,10 +5,13 @@ export default defineNuxtConfig({
   css: ['@/assets/common.scss'],
   modules: [
     '@unocss/nuxt',
-    "@nuxt/ui",
+    "@nuxt/ui", // '@ant-design-vue/nuxt'
     '@element-plus/nuxt',
-    // '@ant-design-vue/nuxt'
+    "nuxt-tiptap-editor"
   ],
+  tiptap: {
+    prefix: "Tiptap", //prefix for Tiptap imports, composables not included
+  },
   colorMode: {
     preference: 'light'
   },

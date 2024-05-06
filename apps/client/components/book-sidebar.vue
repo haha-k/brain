@@ -83,12 +83,13 @@
             </div>
         </NuxtLink>
     </div>
-    <div class="book-list">
+
+    <div class="docs-list">
         <el-tree
             style="max-width: 600px"
             :data="treeData"
             :props="defaultProps"
-            @node-click="handleNodeClick"
+            @node-click="handleNodeClick('docs')"
         />
     </div>
 </div>
@@ -101,16 +102,10 @@ const current = ref<string[]>(['start']);
 
 const menuList = [
     {
-        label: '开始',
+        label: '首页',
         key: 'start',
         icon: 'i-heroicons-clock',
         to: '/dashboard'
-    },
-    {
-        label: '收藏',
-        key: 'collect',
-        icon: 'i-heroicons-star',
-        to: '/dashboard/collections'
     }
 ]
 
@@ -146,8 +141,8 @@ const defaultProps = {
 }
 
 onMounted(async () => {
-    const { data: bookTreeList } = await useFetch('/api/bookTreeList')
-    treeData.value = bookTreeList.value;
+    const { data: docsTreeList } = await useFetch('/api/docsTreeList')
+    treeData.value = props.isBookList ? bookTreeList.value : docsTreeList.value;
     console.log('%c HAHA-[ treeData.value ]-168', 'font-size:13px; background:pink; color:#bf2c9f;', treeData.value);
 })
 
