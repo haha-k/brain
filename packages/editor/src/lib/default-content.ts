@@ -4,7 +4,7 @@ export const defaultEditorContent = {
     {
       type: "heading",
       attrs: { level: 2 },
-      content: [{ type: "text", text: "请输入标题" }],
+      content: [{ type: "text", text: "请输入标题", placeholder: "请输入标题" }],
     },
     {
       type: "paragraph",

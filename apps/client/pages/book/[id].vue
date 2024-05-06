@@ -3,10 +3,8 @@
         <book-sidebar
             @change-tree="handleChangeTree"
         ></book-sidebar>
-        <div class="w-full mh-100vh">
-            <!-- <editor></editor> -->
+        <div class="w-full mh-100vh overflow-auto">
             <notion-editor
-
                 @update="handleUpdate"
             ></notion-editor>
         </div>

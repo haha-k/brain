@@ -76,6 +76,10 @@
         :is-open="isOpenCreateKnow"
         @close="handleCloseCreate"
     ></create-knowledge>
+    <create-docs
+        :is-open="isOpenCreateDocs"
+        @close="handleCloseCreateDocs"
+    ></create-docs>
 </template>
 
 <script setup>
@@ -120,6 +124,7 @@ const tableData = computed(() => {
 console.log('%c HAHA-[ tableData ]-86', 'font-size:13px; background:pink; color:#bf2c9f;', tableData.value);
 
 const isOpenCreateKnow = ref(false);
+const isOpenCreateDocs = ref(false);
 
 const handleCreateKnow = () => {
     isOpenCreateKnow.value = true;
@@ -133,8 +138,12 @@ const handleCloseCreate = () => {
     isOpenCreateKnow.value = false;
 }
 
-const handleCreateDocs = () => {
+const handleCloseCreateDocs = () => {
+    isOpenCreateDocs.value =false;
+}
 
+const handleCreateDocs = () => {
+    isOpenCreateDocs.value = true;
 }
 
 </script>

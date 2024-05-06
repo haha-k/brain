@@ -72,6 +72,8 @@ const bookName = ref('')
 const handleSave = () => {
     isOpenCreate.value = false;
     handleClose();
+    const router = useRouter()
+    router.push({ path: `/book/${Math.random()*1000}`});
 }
 
 
