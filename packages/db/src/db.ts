@@ -28,7 +28,6 @@
 //     database: 'mydb'
 // });
 
-
 import mysql from "mysql2/promise";
 
 // 缓存连接池

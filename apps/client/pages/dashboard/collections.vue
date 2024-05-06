@@ -10,5 +10,6 @@
 <style>
 .dashboard__wrapper {
     min-height: 100vh;
+    display: flex;
 }
 </style>

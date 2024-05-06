@@ -26,8 +26,8 @@ model User {
   @@map("user")
 }
 
-// book(知识库表)
-model Book {
+// KnowledgeBase(知识库表)
+model KnowledgeBase {
   id Int @id @default(autoincrement())
   userId Int
   title String
