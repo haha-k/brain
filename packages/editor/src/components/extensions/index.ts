@@ -107,9 +107,9 @@ export const defaultExtensions = [
   Placeholder.configure({
     placeholder: ({ node }) => {
       if (node.type.name === "heading") {
-        return `Heading ${node.attrs.level}`;
+        return `标题 ${node.attrs.level}`;
       }
-      return "Press '/' for commands, or '++' for AI autocomplete...";
+      return "输入'/'选择, or '++'用AI续写...";
     },
     includeChildren: true,
   }),

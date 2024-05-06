@@ -64,23 +64,27 @@ export interface SuggestionItem {
 const getSuggestionItems = ({ query }: { query: string }) => {
   return [
     {
-      title: "Continue writing",
-      description: "Use AI to expand your thoughts.",
+      title: "续写",
+      titleEn: "Continue writing",
+      description: "使用AI扩展你的想法",
+      descriptionEn: "Use AI to expand your thoughts.",
       searchTerms: ["gpt"],
       icon: Sparkles,
     },
+    // {
+    //   title: "Send Feedback",
+    //   description: "Let us know how we can improve.",
+    //   icon: MessageSquarePlus,
+    //   command: ({ editor, range }: CommandProps) => {
+    //     editor.chain().focus().deleteRange(range).run();
+    //     window.open("/feedback", "_blank");
+    //   },
+    // },
     {
-      title: "Send Feedback",
-      description: "Let us know how we can improve.",
-      icon: MessageSquarePlus,
-      command: ({ editor, range }: CommandProps) => {
-        editor.chain().focus().deleteRange(range).run();
-        window.open("/feedback", "_blank");
-      },
-    },
-    {
-      title: "Text",
-      description: "Just start typing with plain text.",
+      title: "文本",
+      titleEn: "Text",
+      description: "开始输入纯文本",
+      descriptionEn: "Just start typing with plain text.",
       searchTerms: ["p", "paragraph"],
       icon: Text,
       command: ({ editor, range }: CommandProps) => {
@@ -93,8 +97,10 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "To-do List",
-      description: "Track tasks with a to-do list.",
+      title: "待办列表",
+      titleEn: "To-do List",
+      description: "规划你的to-do列表",
+      descriptionEn: "Track tasks with a to-do list.",
       searchTerms: ["todo", "task", "list", "check", "checkbox"],
       icon: CheckSquare,
       command: ({ editor, range }: CommandProps) => {
@@ -102,7 +108,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 1",
+      title: "主标题",
+      titleEn: "Heading 1",
       description: "Big section heading.",
       searchTerms: ["title", "big", "large"],
       icon: Heading1,
@@ -116,7 +123,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 2",
+      title: "中标题",
+      titleEn: "Heading 2",
       description: "Medium section heading.",
       searchTerms: ["subtitle", "medium"],
       icon: Heading2,
@@ -130,7 +138,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Heading 3",
+      title: "小标题",
+      titleEn: "Heading 3",
       description: "Small section heading.",
       searchTerms: ["subtitle", "small"],
       icon: Heading3,
@@ -144,7 +153,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Bullet List",
+      title: "列表",
+      titleEn: "Bullet List",
       description: "Create a simple bullet list.",
       searchTerms: ["unordered", "point"],
       icon: List,
@@ -153,7 +163,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Numbered List",
+      title: "数字列表",
+      titleEn: "Numbered List",
       description: "Create a list with numbering.",
       searchTerms: ["ordered"],
       icon: ListOrdered,
@@ -162,7 +173,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
       },
     },
     {
-      title: "Quote",
+      title: "引用",
+      titleEn: "Quote",
       description: "Capture a quote.",
       searchTerms: ["blockquote"],
       icon: TextQuote,
@@ -176,7 +188,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
           .run(),
     },
     {
-      title: "Code",
+      title: "代码块",
+      titleEn: "Code",
       description: "Capture a code snippet.",
       searchTerms: ["codeblock"],
       icon: Code,
@@ -184,7 +197,8 @@ const getSuggestionItems = ({ query }: { query: string }) => {
         editor.chain().focus().deleteRange(range).toggleCodeBlock().run(),
     },
     {
-      title: "Image",
+      title: "图片",
+      titleEn: "Image",
       description: "Upload an image from your computer.",
       searchTerms: ["photo", "picture", "media"],
       icon: Image,

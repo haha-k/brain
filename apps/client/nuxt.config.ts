@@ -31,5 +31,9 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ['dayjs', 'dayjs/plugin/*']
     }
-  }
+  },
+  runtimeConfig: {
+    openaiApiKey: "",
+    BLOB_READ_WRITE_TOKEN: "",
+  },
 })
